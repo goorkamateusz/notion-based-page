@@ -31,8 +31,9 @@ It uses Notion as a CMS, [react-notion-x](https://github.com/NotionX/react-notio
 - Responsive for different devices
 - Optimized for Next.js and Vercel
 
-# Starter kit
+# Notion based page
 
 ## License
 
+Based on [nextjs-notion-starter-kit](https://github.com/transitive-bullshit/nextjs-notion-starter-kit)
 MIT © [Travis Fischer](https://transitivebullsh.it)
