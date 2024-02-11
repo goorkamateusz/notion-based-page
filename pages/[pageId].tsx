@@ -1,21 +1,24 @@
 import * as React from 'react'
-import { GetStaticProps } from 'next'
-
+import { GetServerSideProps } from 'next'
 import { NotionPage } from '@/components/NotionPage'
-import { domain, isDev } from '@/lib/config'
-import { getSiteMap } from '@/lib/get-site-map'
+import { domain } from '@/lib/config'
 import { resolveNotionPage } from '@/lib/resolve-notion-page'
 import { PageProps, Params } from '@/lib/types'
 
-export const getStaticProps: GetStaticProps<PageProps, Params> = async (
+export const getServerSideProps: GetServerSideProps<PageProps, Params> = async (
   context
 ) => {
+  context.res.setHeader(
+    'Cache-Control',
+    'public, s-maxage=10, stale-while-revalidate=59'
+  )
+
   const rawPageId = context.params.pageId as string
 
   try {
     const props = await resolveNotionPage(domain, rawPageId)
 
-    return { props, revalidate: 10 }
+    return { props }
   } catch (err) {
     console.error('page error', domain, rawPageId, err)
 
@@ -23,30 +26,6 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
     // let next.js know explicitly that incremental SSG failed
     throw err
   }
-}
-
-export async function getStaticPaths() {
-  if (isDev) {
-    return {
-      paths: [],
-      fallback: true
-    }
-  }
-
-  const siteMap = await getSiteMap()
-
-  const staticPaths = {
-    paths: Object.keys(siteMap.canonicalPageMap).map((pageId) => ({
-      params: {
-        pageId
-      }
-    })),
-    // paths: [],
-    fallback: true
-  }
-
-  console.log(staticPaths.paths)
-  return staticPaths
 }
 
 export default function NotionDomainDynamicPage(props) {
