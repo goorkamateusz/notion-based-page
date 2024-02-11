@@ -7,6 +7,7 @@ export default siteConfig({
   // if you want to restrict pages to a single notion workspace (optional)
   // (this should be a Notion ID; see the docs for how to extract this)
   rootNotionSpaceId: null,
+  includeNotionIdInUrls: true,
 
   // basic site info (required)
   name: '#goorkamateusz',
@@ -17,7 +18,7 @@ export default siteConfig({
   description: 'Example Next.js Notion Starter Kit Site',
 
   // social usernames (optional)
-  // twitter: 'transitive_bs',
+  // twitter: '',
   github: 'goorkamateusz',
   linkedin: 'goorkamateusz',
   // mastodon: '#', // optional mastodon profile URL, provides link verification
@@ -31,7 +32,7 @@ export default siteConfig({
   defaultPageCoverPosition: 0.5,
 
   // whether or not to enable support for LQIP preview images (optional)
-  isPreviewImageSupportEnabled: true,
+  isPreviewImageSupportEnabled: false,
 
   // whether or not redis is enabled for caching generated preview images (optional)
   // NOTE: if you enable redis, you need to set the `REDIS_HOST` and `REDIS_PASSWORD`

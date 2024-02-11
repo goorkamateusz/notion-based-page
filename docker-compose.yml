@@ -11,4 +11,4 @@ services:
       dockerfile: Dockerfile
 
     ports:
-      - 3000:3000
+      - 40201:3000
