@@ -18,4 +18,12 @@ jobs:
         with:
           fetch-depth: 1
           clean: false
-      - run: ./bash/run.sh
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build Next.js app
+        run: npm run build
+
+      - name: Run app
+        run: npm start
