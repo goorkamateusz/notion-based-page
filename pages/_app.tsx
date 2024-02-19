@@ -19,6 +19,13 @@ import 'styles/notion.css'
 // global style overrides for prism theme (optional)
 import 'styles/prism-theme.css'
 
+// used for code syntax highlighting (optional)
+import 'prismjs/themes/prism-tomorrow.css'
+// used for rendering equations (optional)
+import 'katex/dist/katex.min.css'
+
+import 'styles/theme.css'
+
 import { bootstrap } from '@/lib/bootstrap-client'
 import {
   fathomConfig,
