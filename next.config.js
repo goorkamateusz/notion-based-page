@@ -4,7 +4,6 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 })
 
 module.exports = withBundleAnalyzer({
-  output: "standalone",
   reactStrictMode: true,
   staticPageGenerationTimeout: 60,
   images: {
