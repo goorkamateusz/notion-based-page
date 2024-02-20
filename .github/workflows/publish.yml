@@ -26,4 +26,4 @@ jobs:
         run: npm run build
 
       - name: Run app
-        run: npm start -- -p 40201
+        run: pm2 start npm --name "app" --watch -- start -- -p 40201
