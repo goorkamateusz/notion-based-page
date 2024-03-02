@@ -142,6 +142,10 @@
   margin-left: 4px;
 }
 
+.notion-table-view-header-cell-inner {
+  border: none;
+}
+
 .notion-collection .notion-table-view .notion-table-header,
 .notion-table-view,
 .notion-collection .notion-table-view .notion-table-header-placeholder,
@@ -188,9 +192,23 @@
 
 .notion-board-header-placeholder {
   height: 35px;
-  width: calc(100% + 100px);
-  border-bottom: 0.733945px solid #777;
-  margin-left: -1000px;
+  border: none;
+}
+
+.notion-board-th {
+  justify-content: center;
+}
+
+.notion-board-th-count {
+  font-size: 10px;
+}
+
+.notion-board-th-count::before {
+  content: "(";
+}
+
+.notion-board-th-count::after {
+  content: ")";
 }
 
 .notion-collection-card-body {
@@ -203,6 +221,11 @@
 
 .notion-page-title {
   display: inline-flex;
+}
+
+.notion-property:has(.notion-link) {
+  overflow-x: hidden;
+  text-wrap: nowrap;
 }
 
 /* todo display link to page same as icon based tag */
