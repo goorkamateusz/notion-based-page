@@ -25,5 +25,8 @@ jobs:
       - name: Build Next.js app
         run: npm run build
 
+      - name: Install Pm2
+        run: npm install pm2@latest -g
+
       - name: Run app
         run: pm2 start npm --name "app" --watch -- start -- -p 40201
